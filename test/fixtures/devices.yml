@@ -2,10 +2,6 @@
 
 one:
   name: MyString
-  manufacturer: MyString
-  category: MyString
 
 two:
   name: MyString
-  manufacturer: MyString
-  category: MyString

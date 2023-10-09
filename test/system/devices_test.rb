@@ -14,8 +14,6 @@ class DevicesTest < ApplicationSystemTestCase
     visit devices_url
     click_on "New device"
 
-    fill_in "Category", with: @device.category
-    fill_in "Manufacturer", with: @device.manufacturer
     fill_in "Name", with: @device.name
     click_on "Create Device"
 
@@ -27,8 +25,6 @@ class DevicesTest < ApplicationSystemTestCase
     visit device_url(@device)
     click_on "Edit this device", match: :first
 
-    fill_in "Category", with: @device.category
-    fill_in "Manufacturer", with: @device.manufacturer
     fill_in "Name", with: @device.name
     click_on "Update Device"
 
