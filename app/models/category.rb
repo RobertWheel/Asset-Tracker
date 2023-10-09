@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :devices
+  has_many :devices
 end

@@ -1,4 +1,3 @@
 class Device < ApplicationRecord
-  has_many :manufacturers
-  has_many :categories
+  belongs_to :category 
 end

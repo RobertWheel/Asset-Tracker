@@ -6,8 +6,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
   </div>
-  <%= f.association :manufacturers, label_method: :name %>
-  <%= f.association :categories, label_method: :name %>
+  <%= f.association :category %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
