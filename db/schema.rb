@@ -10,9 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_020402) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_230721) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "device_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "device_manufacturers", force: :cascade do |t|
+    t.string "name"
+    t.text "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "name"
+    t.string "manufacturer"
+    t.string "category"
+    t.string "assigned_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "full_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manufacturers", force: :cascade do |t|
+    t.string "name"
+    t.text "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "softwares", force: :cascade do |t|
+    t.string "name"
+    t.integer "license_count"
+    t.boolean "employees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
