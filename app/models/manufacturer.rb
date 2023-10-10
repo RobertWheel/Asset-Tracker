@@ -1,3 +1,3 @@
 class Manufacturer < ApplicationRecord
-  belongs_to :devices
+  has_many :devices
 end
