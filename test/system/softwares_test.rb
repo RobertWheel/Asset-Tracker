@@ -14,7 +14,6 @@ class SoftwaresTest < ApplicationSystemTestCase
     visit softwares_url
     click_on "New software"
 
-    check "Employees" if @software.employees
     fill_in "License count", with: @software.license_count
     fill_in "Name", with: @software.name
     click_on "Create Software"
@@ -27,7 +26,6 @@ class SoftwaresTest < ApplicationSystemTestCase
     visit software_url(@software)
     click_on "Edit this software", match: :first
 
-    check "Employees" if @software.employees
     fill_in "License count", with: @software.license_count
     fill_in "Name", with: @software.name
     click_on "Update Software"

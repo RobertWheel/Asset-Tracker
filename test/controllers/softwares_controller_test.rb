@@ -17,7 +17,7 @@ class SoftwaresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create software" do
     assert_difference("Software.count") do
-      post softwares_url, params: { software: { employees: @software.employees, license_count: @software.license_count, name: @software.name } }
+      post softwares_url, params: { software: { license_count: @software.license_count, name: @software.name } }
     end
 
     assert_redirected_to software_url(Software.last)
@@ -34,7 +34,7 @@ class SoftwaresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update software" do
-    patch software_url(@software), params: { software: { employees: @software.employees, license_count: @software.license_count, name: @software.name } }
+    patch software_url(@software), params: { software: { license_count: @software.license_count, name: @software.name } }
     assert_redirected_to software_url(@software)
   end
 

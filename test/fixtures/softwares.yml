@@ -3,9 +3,7 @@
 one:
   name: MyString
   license_count: 1
-  employees: false
 
 two:
   name: MyString
   license_count: 1
-  employees: false
