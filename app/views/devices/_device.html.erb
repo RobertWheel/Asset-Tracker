@@ -4,16 +4,32 @@
     <%= device.name %>
   </p>
 
-<div id="<%= dom_id device %>">
   <p>
     <strong>Manufacturer:</strong>
     <%= device.manufacturer.name %>
   </p>
 
-</div>
 
-<div id="<%= dom_id device %>">
   <p>
     <strong>Category:</strong>
     <%= device.category.name %>
   </p>
+
+
+  <p>
+     <strong>Assigned to:</strong>
+     <ul>
+  
+     <% if device.employee %>
+      
+      <li><%= link_to device.employee.first_name, employee_path(device.employee) %></li>
+     </ul>
+     <% else %>
+       No employee assigned to this device.
+     <% end %>
+     
+  </p>
+
+</div>
+
+
