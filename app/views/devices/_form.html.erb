@@ -4,6 +4,6 @@
    <%= form.input :name %>
    <%= form.association :manufacturer %>
    <%= form.association :category %>
-   <%= form.association :employee, label_method: :first_name%>
+   <%= form.association :employee, label_method: :full_name%>
    <%= form.submit :class => "btn btn-primary" %>
 <% end %>

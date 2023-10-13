@@ -1,0 +1,26 @@
+<h1>Dashboard#index</h1>
+<h2>Device Usage</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>total</th>
+      <th>Assigned</th>
+      <th>Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.all.each do |category| %>
+ 
+    <tr>
+      <td><%= category.name%></td>
+      <td><%= category.devices.count%></td>
+
+    </tr>
+
+    <% end %>
+  </tbody>
+ 
+</table>
+
+
