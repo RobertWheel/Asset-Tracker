@@ -1,4 +1,6 @@
-<h1>Dashboard#index</h1>
+<h1>Dashboard</h1>
+<br>
+<br>
 <h2>Device Usage</h2>
 <table class="table table-striped">
   <thead>
@@ -16,6 +18,9 @@
       <td><%= category.name%></td>
       <td><%= category.devices.count%></td>
 
+      <td><%= category.employees.uniq.count%></td>
+      <!--found this method of showing the available categories below online becasue it wasnt shown in class-->
+      <td><%= Category.left_outer_joins(:devices).where(devices: { id: nil }).distinct.count %></td>
     </tr>
 
     <% end %>
