@@ -28,4 +28,32 @@
  
 </table>
 
+<br>
+<br>
+<h2>Software Compliance</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>License Count</th>
+      <th>Employee count</th>
+      <th>Complient?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @softwares.each do |software| %>
+ 
+    <tr>
+      <td><%= software.name%></td>
+      <td><%= software.license_count%></td>
+      <td><%= software.employees.count%></td>
+      <td><%= software.compliant? %></td>
+      
+    </tr>
+
+    <% end %>
+  </tbody>
+ 
+</table>
+
 
