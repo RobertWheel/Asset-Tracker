@@ -12,15 +12,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @categories.all.each do |category| %>
+    <% @categories.each do |category| %>
  
     <tr>
       <td><%= category.name%></td>
       <td><%= category.devices.count%></td>
-
-      <td><%= category.employees.uniq.count%></td>
-      <!--found this method of showing the available categories below online becasue it wasnt shown in class-->
-      <td><%= Category.left_outer_joins(:devices).where(devices: { id: nil }).distinct.count %></td>
+      <td><%= category.devices.all.where.not(:employee => nil).count%></td>
+       <td><%= category.devices.all.where(:employee => nil).count%></td>
+    
     </tr>
 
     <% end %>
