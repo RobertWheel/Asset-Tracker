@@ -35,32 +35,24 @@ Employee.create({
 
 
 
-Manufacture.create({
+Manufacturer.create({
      :name => "Apple",
      :website => "apple.com"
 })
-Manufacture.create({
-     :name => "Apple",
-     :website => "apple.com"
+Manufacturer.create({
+     :name => "Microsoft",
+     :website => "Microsoft.com"
 })
-Manufacture.create({
-     :name => "Apple",
-     :website => "apple.com"
+Manufacturer.create({
+     :name => "hp",
+     :website => "hp.com"
 })
-Manufacture.create({
+Manufacturer.create({
      :name => "Dell",
      :website => "Dell.com"
 })
-Manufacture.create({
+Manufacturer.create({
      :name => "Samsung",
      :website => "Samsung.com"
 })
 
-
-
-
-
-Device.create({
-    :name => "Smart phone 1"
-    :manufacturer => "Apple"
-})
