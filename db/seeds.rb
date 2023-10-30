@@ -7,52 +7,89 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-Employee.create({
-    :first_name => "Employee 5",
-    :last_name => "Hong"
-})
+5.times do |index|
+  employee = Employee.create(
 
-Employee.create({
-    :first_name => "Employee 4",
-    :last_name => "Rodriguez"
-})
+  :first_name => "Employee ",
+  :last_name => " #{index + 1}"
 
-Employee.create({
-    :first_name => "Employee 3",
-    :last_name => "noe"
-})
-
-Employee.create({
-    :first_name => "Employee 2",
-    :last_name => "Doe"
-})
-
-Employee.create({
-    :first_name => "Employee 1",
-    :last_name => "Rueda"
-})
+  )
+end
 
 
-
-
-Manufacturer.create({
-     :name => "Apple",
-     :website => "apple.com"
-})
-Manufacturer.create({
+manufacturer_hashes = [ 
+  {
+    :name => "Apple",
+    :website => "apple.com"
+  },
+  {
      :name => "Microsoft",
      :website => "Microsoft.com"
-})
-Manufacturer.create({
-     :name => "hp",
-     :website => "hp.com"
-})
-Manufacturer.create({
-     :name => "Dell",
-     :website => "Dell.com"
-})
-Manufacturer.create({
-     :name => "Samsung",
-     :website => "Samsung.com"
-})
+  },
+  {
+    :name => "hp",
+    :website => "hp.com"
+  },
+  {
+    :name => "Dell",
+    :website => "Dell.com"
+  },
+  {
+    :name => "Samsung",
+    :website => "Samsung.com"
+  }
+]
+
+Manufacturer.create(manufacturer_hashes)
+
+
+category_hashes = [ 
+  {
+    :name => "Smart Phone",
+  },
+  {
+     :name => "Ipad",
+  },
+  {
+    :name => "Desktop",
+  },
+  {
+    :name => "Laptop",
+  },
+  {
+    :name => "TV",
+  }
+]
+
+Category.create(category_hashes)
+
+
+
+
+5.times do |index|
+   software = Software.create(
+     :name => "Software #{index + 1}",
+     :license_count => rand(1..5),
+    )   
+
+   employee = Employee.all[index % Employee.count]
+   software.employees << employee
+end
+
+
+
+
+
+
+
+
+5.times do |index|
+   device = Device.create(
+     :name => "Device #{index + 1}",
+     :manufacturer => Manufacturer.first,
+     :category => Category.first,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+
 
