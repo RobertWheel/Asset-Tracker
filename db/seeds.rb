@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
-
 5.times do |index|
   employee = Employee.create(
 
@@ -63,29 +54,16 @@ category_hashes = [
 
 Category.create(category_hashes)
 
-
-
-
 5.times do |index|
-   software = Software.create(
+   Software.create(
      :name => "Software #{index + 1}",
      :license_count => rand(1..5),
     )   
-
-   employee = Employee.all[index % Employee.count]
-   software.employees << employee
 end
 
-
-
-
-
-
-
-
 5.times do |index|
-   device = Device.create(
-     :name => "Device #{index + 1}",
+   Device.create(
+     :name => "Smart Phone #{index + 1}",
      :manufacturer => Manufacturer.first,
      :category => Category.first,
      :employee => Employee.all[index % Employee.count]
@@ -93,3 +71,18 @@ end
 end
 
 
+
+5.times do |index|
+   device = Device.create(
+     :name => "Ipad #{index + 1}",
+     :manufacturer => Manufacturer.second,
+     :category => Category.second,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+
+3.times do
+   Employee.all.each do |employee|
+     employee.softwares << Software.find(rand(1..5))
+   end
+end
