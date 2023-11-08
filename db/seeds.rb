@@ -60,27 +60,85 @@ Category.create(category_hashes)
      :license_count => rand(1..5),
     )   
 end
-
-5.times do |index|
-   Device.create(
-     :name => "Smart Phone #{index + 1}",
+################################################################
+3.times do |index|
+    Device.create(
+     :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.first,
      :category => Category.first,
      :employee => Employee.all[index % Employee.count]
     )   
 end
+3.times do |index|
+   Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.second,
+     :category => Category.first,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
 
-
-
-5.times do |index|
-   device = Device.create(
-     :name => "Ipad #{index + 1}",
+3.times do |index|
+    Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.third,
+     :category => Category.first,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+3.times do |index|
+   Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.first,
+     :category => Category.second,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+3.times do |index|
+   Device.create(
+     :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.second,
      :category => Category.second,
      :employee => Employee.all[index % Employee.count]
     )   
 end
+3.times do |index|
+   Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.third,
+     :category => Category.second,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
 
+3.times do |index|
+    Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.first,
+     :category => Category.third,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+
+3.times do |index|
+    Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.second,
+     :category => Category.third,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+
+3.times do |index|
+    Device.create(
+     :name => "Device #{index + rand(1..100)}",
+     :manufacturer => Manufacturer.third,
+     :category => Category.third,
+     :employee => Employee.all[index % Employee.count]
+    )   
+end
+
+############################################################################
 3.times do
    Employee.all.each do |employee|
      employee.softwares << Software.find(rand(1..5))
