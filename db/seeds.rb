@@ -21,14 +21,6 @@ manufacturer_hashes = [
     :name => "hp",
     :website => "hp.com"
   },
-  {
-    :name => "Dell",
-    :website => "Dell.com"
-  },
-  {
-    :name => "Samsung",
-    :website => "Samsung.com"
-  }
 ]
 
 Manufacturer.create(manufacturer_hashes)
@@ -44,14 +36,7 @@ category_hashes = [
   {
     :name => "Desktop",
   },
-  {
-    :name => "Laptop",
-  },
-  {
-    :name => "TV",
-  }
 ]
-
 Category.create(category_hashes)
 
 5.times do |index|
@@ -66,7 +51,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.first,
      :category => Category.first,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 3.times do |index|
@@ -74,7 +58,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.second,
      :category => Category.first,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 
@@ -83,7 +66,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.third,
      :category => Category.first,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 3.times do |index|
@@ -91,7 +73,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.first,
      :category => Category.second,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 3.times do |index|
@@ -99,7 +80,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.second,
      :category => Category.second,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 3.times do |index|
@@ -107,7 +87,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.third,
      :category => Category.second,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 
@@ -116,7 +95,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.first,
      :category => Category.third,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 
@@ -125,7 +103,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.second,
      :category => Category.third,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 
@@ -134,7 +111,6 @@ end
      :name => "Device #{index + rand(1..100)}",
      :manufacturer => Manufacturer.third,
      :category => Category.third,
-     :employee => Employee.all[index % Employee.count]
     )   
 end
 
@@ -144,3 +120,10 @@ end
      employee.softwares << Software.find(rand(1..5))
    end
 end
+
+3.times do
+  Employee.all.each do |employee|
+      device = Device.where(:employee_id => nil).sample
+       device.update(:employee_id => employee.id)
+    end
+ end
