@@ -7,25 +7,20 @@
 
    <div>
    <%= form.label :category_id, "Filter by Category:", :class => "form-label"%>
-   <%= form.select :category_id, Category.all.map {|s| [s.name, s.id]}, 
-   {:selected => @category_id, :include_blank => true},
-   {:class => "form-select"} %>
+   <%= form.select :category_id, Category.all.map {|s| [s.name, s.id]}, {:selected => @category_id, :include_blank => true}, {:class => "form-select"} %>
    </div>
-
+  <br>
    <div>
-   <%= form.label :manufacturer_id, "Filter by Manufacturer:",
-   :class => "form-label" %>
-   <%= form.select :manufacturer_id, Manufacturer.all.map {|p| [p.name, p.id]},
-   {:selected => @manufacturer_id, :include_blank => true},
-   {:class => "form-select"} %>
+   <%= form.label :manufacturer_id, "Filter by Manufacturer:", :class => "form-label" %>
+   <%= form.select :manufacturer_id, Manufacturer.all.map {|p| [p.name, p.id] }, { :selected => @manufacturer_id, :include_blank => true}, {:class => "form-select"} %>
    </div>
-   
+   <br>
    <div>
    <%= form.submit "Search", :class => "btn btn-outline-primary"%>
    </div>
 
  <% end %>
-
+<br>
  <p class="mt-3"> You Searched for  '<%= @query %>'</p>
 
 <%if @query.present? %>
@@ -34,7 +29,7 @@
 <% if @devices.present? %>
 <ul>
    <% @devices.each do |c| %>
-   <li><%= link_to c.name, device_path(c)  %></li>  
+   <li><%= link_to c.search_name, device_path(c)  %></li>  
    <% end %>
 </ul>
  <% end %>
